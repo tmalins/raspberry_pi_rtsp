@@ -11,7 +11,7 @@
 # Description:       Turns a Raspbery Pi into a RTSP Viewer for multiple feeds.
 ### END INIT INFO
 
-#cd /etc/init.d && sudo wget https://raw.githubusercontent.com/maddog986/raspberry_pi_rtsp/master/rtsp_viewer -O rtsp_viewer && sudo chmod +x ./rtsp_viewer && sudo ./rtsp_viewer install
+#cd /etc/init.d && sudo wget https://raw.githubusercontent.com/tmalins/raspberry_pi_rtsp/master/rtsp_viewer -O rtsp_viewer && sudo chmod +x ./rtsp_viewer && sudo ./rtsp_viewer install
 
 # Start displaying camera feeds
 case "$1" in
@@ -104,7 +104,7 @@ case "$1" in
         /etc/init.d/rtsp_viewer stop
 
         # Update script
-        wget https://raw.githubusercontent.com/maddog986/raspberry_pi_rtsp/master/rtsp_viewer -O /etc/init.d/rtsp_viewer
+        wget https://raw.githubusercontent.com/tmalins/raspberry_pi_rtsp/master/rtsp_viewer -O /etc/init.d/rtsp_viewer
 
         # Start it up again
         /etc/init.d/rtsp_viewer start
