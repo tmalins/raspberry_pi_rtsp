@@ -124,6 +124,13 @@ case "$1" in
 
         #create feeds file
         #echo "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" > /home/pi/rtsp_viewer.txt
+        URLFILE=/home/pi/rtsp_viewer.txt
+        if [ -f "$URLFILE" ]; then
+            echo "$URLFILE exists."
+        else 
+            echo "$URLFILE does not exist. Adding sample!"
+            echo "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" > $URLFILE
+        fi
 
         # Install the Packages
         if [ $(dpkg-query -W -f='${Status}' omxplayer 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
