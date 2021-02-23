@@ -127,6 +127,10 @@ case "$1" in
         URLFILE=/home/pi/rtsp_viewer.txt
         if [ -f "$URLFILE" ]; then
             echo "$URLFILE exists."
+            urlFile=/home/pi/rtsp_viewer.txt
+            echo "------- $URLFILE contents -------"
+            cat $URLFILE
+            echo "----- END $URLFILE contents -----"
         else 
             echo "$URLFILE does not exist. Adding sample!"
             echo "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" > $URLFILE
