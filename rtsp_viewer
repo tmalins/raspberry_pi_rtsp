@@ -124,8 +124,10 @@ case "$1" in
 
         #create feeds file
         #echo "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" > /home/pi/rtsp_viewer.txt
+        REBOOT=true
         URLFILE=/home/pi/rtsp_viewer.txt
         if [ -f "$URLFILE" ]; then
+            REBOOT=false
             echo "$URLFILE exists."
             urlFile=/home/pi/rtsp_viewer.txt
             echo "------- $URLFILE contents -------"
@@ -150,7 +152,11 @@ case "$1" in
         update-rc.d rtsp_viewer defaults
 
         # Reboot so changes take effect
-        reboot
+        if [ "$REBOOT" = true ]; then
+            reboot
+        else
+            /etc/init.d/rtsp_viewer start
+        fi
     ;;
 
     *)
